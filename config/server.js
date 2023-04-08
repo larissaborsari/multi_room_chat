@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
 app.use(expressValidator());
 
 //autoloading in routes, models and controllers
-consignO()
+consign()
     .include('app/routes')
     .then('app/models')
     .then('app/controllers')
