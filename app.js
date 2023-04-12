@@ -6,7 +6,9 @@ var server = app.listen(80, function() {
     console.log('Server online');
 });
 
-var io = require('socket.io'). listen(server)
+var io = require('socket.io'). listen(server);
+
+app.set('io', io);
 
 // create web socket connection 
 io.on('connection', function(socket){

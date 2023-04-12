@@ -12,6 +12,11 @@ module.exports.initChat = function(application, req, res) {
         return;
     }
 
+    application.get('io').emit('msgToClient',{
+        apelido: dataForm.apelido,
+        mensagem: 'acabou de entrar no chat'
+    });
+
     res.render("chat");
 
 }
