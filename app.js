@@ -21,5 +21,12 @@ io.on('connection', function(socket){
      socket.on('msgToServer', function(data){
         socket.emit('msgToClient', {apelido: data.apelido, mensagem: data.mensagem})
         socket.broadcast.emit('msgToClient', {apelido: data.apelido, mensagem: data.mensagem})
+
+        if(parseInt(data.apelido_update_client == 0)){
+            socket.emit('participantsToClient', {apelido: data.apelido})
+            socket.broadcast.emit('participantsToClient', {apelido: data.apelido})
+        }
+
+
      })
 })
